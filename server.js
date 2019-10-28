@@ -2,6 +2,9 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
+// For our server to know where to look for items
+const items = require('./routes/api/items');
+
 const app = express();
 
 // BodyParser MiddleWare
@@ -18,6 +21,9 @@ mongoose
   })
   .then(() => console.log('MongoDB connected. . .'))
   .catch(err => console.log(err));
+
+// Use Routes
+app.use('/api/items', items);
 
 const port = process.env.port || 5000;
 
