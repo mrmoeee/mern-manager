@@ -35,6 +35,6 @@ router.delete('/:id', (req, res) => {
     .then(item => item.remove().then(() => res.json({ success: true })))
     .catch(err => res.status(404).json({ success: false }));  
 });
-// success response is up to you we can return what ever 
+// success response is up to you we can return what we want or be more specific 
 
 module.exports = router;
